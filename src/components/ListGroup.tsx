@@ -1,7 +1,15 @@
 import { Fragment } from "react";
 
 function ListGroup() {
-  const items = ["New York", "San Francisco", "Tokyo", "London", "Paris"];
+  let items = ["New York", "San Francisco", "Tokyo", "London", "Paris"];
+  items = [];
+  // if (items.length === 0)
+  //   return (
+  //     <>
+  //       <h1>List</h1>
+  //       <p>No items found</p>
+  //     </>
+  //   );
 
   return (
     // Multiple components aren't allowed to be returned in react but must be wraped in a div/fragment.
@@ -10,6 +18,7 @@ function ListGroup() {
     // <Fragment>
     <>
       <h1>List Group</h1>
+      {items.length === 0 ? <p>No items found</p> : null}
       <ul className="list-group">
         {/* Rendering Lists dynamically */}
         {items.map((item) => (
