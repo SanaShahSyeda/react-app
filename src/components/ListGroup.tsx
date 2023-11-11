@@ -1,15 +1,11 @@
 import { Fragment } from "react";
+import { MouseEvent } from "react";
 
 function ListGroup() {
   let items = ["New York", "San Francisco", "Tokyo", "London", "Paris"];
-  items = [];
-  // if (items.length === 0)
-  //   return (
-  //     <>
-  //       <h1>List</h1>
-  //       <p>No items found</p>
-  //     </>
-  //   );
+
+  // Event Handler
+  let handleClick = (event: MouseEvent) => console.log(event);
 
   return (
     // Multiple components aren't allowed to be returned in react but must be wraped in a div/fragment.
@@ -18,12 +14,14 @@ function ListGroup() {
     // <Fragment>
     <>
       <h1>List Group</h1>
-      {items.length === 0 ? <p>No items found</p> : null}
+      {items.length === 0 && <p>No items found</p>}
       <ul className="list-group">
         {/* Rendering Lists dynamically */}
-        {items.map((item) => (
+        {items.map((item, index) => (
           // key prop applied so react could keep record of elements
-          <li key={item}>{item}</li>
+          <li className="list-group-item" key={item} onClick={handleClick}>
+            {item}
+          </li>
         ))}
       </ul>
     </>
