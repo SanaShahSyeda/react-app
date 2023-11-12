@@ -5,9 +5,10 @@ import { MouseEvent } from "react";
 interface Props {
   items: String[];
   heading: String;
+  onSelectItem: (item: String) => void;
 }
 
-function ListGroup({ items, heading }: Props) {
+function ListGroup({ items, heading, onSelectItem }: Props) {
   // Hook (it tells react that the component will update its value in time)
   useState;
 
@@ -39,6 +40,7 @@ function ListGroup({ items, heading }: Props) {
             // key={item}
             onClick={() => {
               setSelectedIndex(index);
+              onSelectItem(item);
             }}
           >
             {item}
