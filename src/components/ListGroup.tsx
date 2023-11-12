@@ -1,8 +1,13 @@
 import { Fragment, useState } from "react";
 import { MouseEvent } from "react";
 
-function ListGroup() {
-  let items = ["New York", "San Francisco", "Tokyo", "London", "Paris"];
+// object {item: [], heading:String}
+interface Props {
+  items: String[];
+  heading: String;
+}
+
+function ListGroup({ items, heading }: Props) {
   // Hook (it tells react that the component will update its value in time)
   useState;
 
@@ -19,7 +24,7 @@ function ListGroup() {
     // Another way to use fragments is to add <> brackets.
     // <Fragment>
     <>
-      <h1>List Group</h1>
+      <h1>{heading}</h1>
       {items.length === 0 && <p>No items found</p>}
       <ul className="list-group">
         {/* Rendering Lists dynamically */}
@@ -31,7 +36,7 @@ function ListGroup() {
                 ? "list-group-item active"
                 : "list-group-item"
             }
-            key={item}
+            // key={item}
             onClick={() => {
               setSelectedIndex(index);
             }}
